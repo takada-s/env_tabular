@@ -12,7 +12,7 @@ Settings.hoge.fuga みたいな値について、env(intとかstgとかprdとか
 ## usage
 ```
 $ bundle
-$ bundle ruby tabulate.rb target_yaml_file > some_file.html
+$ bundle exec ruby tabulate.rb target_yaml_file > some_file.html
 ```
 
 ### オプション
