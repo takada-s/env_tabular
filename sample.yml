@@ -1,0 +1,27 @@
+defaults: &defaults
+  key1: value1
+  key2: <%= ENV['KEY2'] %>
+  key3:
+    key3_1: 600
+
+development:
+  <<: *defaults
+  key1: DEV_VALUE_1
+
+int:
+  <<: *defaults
+  key1: <%= "int-value1".upcase %>
+  key2: VALUE2
+  key3:
+    key3_1: 60
+
+stg:
+  <<: *defaults
+  key1: <%= Rails.config.hoge.fuga.piyo %>
+  key3:
+    key3_1: <%= 1.day %>
+
+prd:
+  <<: *defaults
+  key3:
+    key3_1: <%= 1.day %>

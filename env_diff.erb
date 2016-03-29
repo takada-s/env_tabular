@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <style type="text/css">
+    .diff0 {
+      background-color: transparent;
+    }
+    .diff1 {
+      background-color: #B3E5FC;
+    }
+    .diff2 {
+      background-color: #C8E6C9;
+    }
+    .diff3 {
+      background-color: #FFECB3;
+    }
+    .diff4 {
+      background-color: #ffcdd2;
+    }
+    .diff5 {
+      background-color: #C5CAE9;
+    }
+    .diff6 {
+      background-color: #B2DFDB;
+    }
+    .diff7 {
+      background-color: #FFF9C4;
+    }
+    .diff8 {
+      background-color: #D7CCC8;
+    }
+    .diff9 {
+      background-color: #E1BEE7;
+    }
+  </style>
+
+  <title>YAML Diff: <%= @name %></title>
+</head>
+<body>
+<div class="container">
+  <h1>YAML Diff: <%= @name %></h1>
+
+  <% @conf.each do |key, vals| %>
+      <h3><%= key %></h3>
+      <table class="table table-condensed">
+        <% vals.each do |env, val| %>
+            <tr>
+              <td class="col-md-2 <%= @class_map[key][env] %>">
+                <div class="text-right">
+                  <%= env %>
+                </div>
+              </td>
+              <td class="col-md-10 <%= @class_map[key][env] %>">
+                <code><%= val %></code>
+              </td>
+            </tr>
+        <% end %>
+      </table>
+  <% end %>
+
+</div>
+</body>
+</html>
